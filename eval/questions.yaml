@@ -1,5 +1,89 @@
-# Замените вопросы и ожидаемые названия документов после загрузки своей базы.
+# Только вымышленные документы из knowledge/demo/.
 - question: Что сделать в первый рабочий день?
   expect_source: Первые шаги
-- question: Как сообщить, что в базе нет нужной инструкции?
+  expected_terms:
+  - доступ
+- question: Кому сообщить, что нужной инструкции нет?
   expect_source: Первые шаги
+  expected_terms:
+  - администратор
+- question: Кто согласует заявку на оборудование?
+  expect_source: Заявки на оборудование
+  expected_terms:
+  - руководител
+- question: Куда передают согласованную заявку на оборудование?
+  expect_source: Заявки на оборудование
+  expected_terms:
+  - ит
+- question: Что указать в заявке на замену оборудования?
+  expect_source: Заявки на оборудование
+  expected_terms:
+  - причин
+  - рабоч
+- question: Где узнать статус заявки на оборудование?
+  expect_source: Заявки на оборудование
+  expected_terms:
+  - ит
+- question: Когда нужно согласовать расходы?
+  expect_source: Возмещение расходов
+  expected_terms:
+  - до покуп
+- question: Какие документы нужны для возмещения расходов?
+  expect_source: Возмещение расходов
+  expected_terms:
+  - чек
+- question: Куда передать документы для возмещения расходов?
+  expect_source: Возмещение расходов
+  expected_terms:
+  - бухгалтер
+- question: Возмещаются ли личные покупки?
+  expect_source: Возмещение расходов
+  expected_terms:
+  - не возмещ
+- question: Кто согласует командировку?
+  expect_source: Порядок командировок
+  expected_terms:
+  - руководител
+- question: Что указать в заявке на командировку?
+  expect_source: Порядок командировок
+  expected_terms:
+  - город
+  - дат
+- question: Кто оформляет билеты для командировки?
+  expect_source: Порядок командировок
+  expected_terms:
+  - координатор
+- question: Кому передать отчёт после командировки?
+  expect_source: Порядок командировок
+  expected_terms:
+  - бухгалтер
+- question: Как работает офис в Москве?
+  expect_source: Офис в Москве
+  expected_terms:
+  - 09:00
+  - '18:00'
+- question: Кто согласует встречу с посетителем в Москве?
+  expect_source: Офис в Москве
+  expected_terms:
+  - администратор
+- question: Можно ли прийти в московский офис в выходные?
+  expect_source: Офис в Москве
+  expected_terms:
+  - согласован
+- question: Как работает офис в Казани?
+  expect_source: Офис в Казани
+  expected_terms:
+  - '10:00'
+  - '19:00'
+- question: Кто согласует встречу с посетителем в Казани?
+  expect_source: Офис в Казани
+  expected_terms:
+  - координатор
+- question: Когда оформляется гостевой пропуск в Казани?
+  expect_source: Офис в Казани
+  expected_terms:
+  - подтвержден
+- question: Какой код внутреннего склада в Самаре?
+  expect_source: none
+- question: Кто отвечает за внутреннюю программу страхования сотрудников?
+  expect_source: none

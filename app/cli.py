@@ -314,11 +314,11 @@ async def cmd_ocr() -> int:
     return 0
 
 
-async def cmd_eval() -> int:
+async def cmd_eval(*, answers: bool = False, output: str | None = None) -> int:
     from eval.run import run_eval
 
     await init_db()
-    return await run_eval()
+    return await run_eval(answers=answers, output=output)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -344,7 +344,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     sub.add_parser("stats", help="статистика")
     sub.add_parser("warmup", help="прогреть модель эмбеддингов")
-    sub.add_parser("eval", help="прогнать проверочные вопросы")
+    evaluation = sub.add_parser("eval", help="прогнать проверочные вопросы")
+    evaluation.add_argument("--answers", action="store_true", help="проверять также ответы модели; использует API")
+    evaluation.add_argument("--output", help="сохранить результаты в JSON")
     sub.add_parser("ocr", help="распознать сканы PDF через Gemini Vision")
     return parser
 
@@ -371,7 +373,7 @@ def main() -> int:
     if args.command == "warmup":
         return asyncio.run(cmd_warmup())
     if args.command == "eval":
-        return asyncio.run(cmd_eval())
+        return asyncio.run(cmd_eval(answers=args.answers, output=args.output))
     if args.command == "ocr":
         return asyncio.run(cmd_ocr())
     return 1
