@@ -190,12 +190,15 @@ async def build_answer(
         return GeneratedAnswer(complete_list, _sources(chunks), False, top_score,
                                [c.chunk_id for c in chunks], '')
 
+    domain_template = config.get("generation.domain_rules_template")
+    domain_rules = render(domain_template, persona=config.persona()) if domain_template else ""
     instructions = render(
         "answer.j2",
         persona=config.persona(),
         current_date=date.today().isoformat(),
         free_chat=free_chat,
         missing_company_reply=missing_company_reply,
+        domain_rules=domain_rules,
     )
     from app.retrieval.promotion_catalog import _price_fact, _client_message
     validate_promotion=any(c.promotion_rows is not None for c in chunks)

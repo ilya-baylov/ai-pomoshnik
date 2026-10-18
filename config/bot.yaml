@@ -34,6 +34,9 @@ chunking:
   overlap_tokens: null
   min_tokens: 40
 generation:
+  # Необязательно: domains/service_business.j2 для сервисного бизнеса.
+  # Путь задаётся относительно config/prompts/ без префикса prompts/.
+  domain_rules_template: null
   work_only: true
   free_chat: true
   max_chat_output_tokens: 900
