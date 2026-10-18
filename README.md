@@ -1,6 +1,6 @@
 # 🔎 ИИ-помощник
 
-[![Tests](https://github.com/ilya-baylov/knowledge-assistant/actions/workflows/tests.yml/badge.svg)](https://github.com/ilya-baylov/knowledge-assistant/actions/workflows/tests.yml)
+[![Tests](https://github.com/ilya-baylov/ai-pomoshnik/actions/workflows/tests.yml/badge.svg)](https://github.com/ilya-baylov/ai-pomoshnik/actions/workflows/tests.yml)
 
 **Ответы по базе знаний компании в Telegram.**
 
@@ -88,8 +88,8 @@
 Нужен Python 3.12, токен Telegram-бота и ключ API для моделей.
 
 ```bash
-git clone https://github.com/ilya-baylov/knowledge-assistant.git
-cd knowledge-assistant
+git clone https://github.com/ilya-baylov/ai-pomoshnik.git
+cd ai-pomoshnik
 python -m venv .venv
 ```
 
