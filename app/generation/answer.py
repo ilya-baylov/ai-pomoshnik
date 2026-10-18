@@ -136,6 +136,9 @@ async def build_answer(
         chunks = selected
 
     top_score = max((c.score for c in chunks), default=0.0)
+    # Один сильный результат не делает остальные совпадения достоверными.
+    # Порог применяется к каждому фрагменту до передачи источников модели.
+    chunks = [chunk for chunk in chunks if chunk.score >= min_score]
 
     # Complete structured facts can be rendered without a paid model call.
     direct = [c.direct_answer for c in chunks if c.direct_answer and c.score >= min_score]
