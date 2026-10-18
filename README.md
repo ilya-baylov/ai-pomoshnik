@@ -49,3 +49,40 @@
 | Проверки | pytest, pytest-asyncio, наборы вопросов для оценки поиска |
 
 Модель ответов и модель эмбеддингов настраиваются отдельно. Повторная индексация использует кэш эмбеддингов, чтобы не обрабатывать одинаковые фрагменты заново.
+
+## Запуск
+
+Нужен Python 3.12, токен Telegram-бота и ключ API для моделей.
+
+```bash
+git clone https://github.com/ilya-baylov/knowledge-assistant.git
+cd knowledge-assistant
+python -m venv .venv
+```
+
+Активируйте окружение: `source .venv/bin/activate` в Linux/macOS или `.venv\Scripts\Activate.ps1` в PowerShell. Затем установите зависимости:
+
+```bash
+pip install -r requirements.txt
+```
+
+Скопируйте `.env.example` в `.env`. Заполните `TELEGRAM_BOT_TOKEN`, `OPENAI_API_KEY` и свой Telegram ID в `ADMIN_IDS`. Название компании и поведение помощника задаются в `config/bot.yaml`.
+
+В `knowledge/demo/` лежит вымышленная инструкция для первого запуска. Перед загрузкой своих материалов удалите её, чтобы пример не попадал в ответы.
+
+```bash
+python -m app.cli ingest
+python -m app.channels.telegram.bot
+```
+
+Доступ закрыт по умолчанию. Администратор может пригласить сотрудника командой `/invite` или заранее указать его ID в `STAFF_IDS`.
+
+Для Docker: сначала выполните `docker compose build`, затем `docker compose run --rm bot python -m app.cli ingest` и `docker compose up -d`.
+
+## Проверки
+
+```bash
+python -m pytest -q
+```
+
+Тесты используют временные базы, вымышленные документы и подменённые вызовы моделей. Рабочие документы, ключи и база сотрудников в репозиторий не входят.

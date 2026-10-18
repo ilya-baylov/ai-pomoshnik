@@ -1,0 +1,63 @@
+persona:
+  name: Помощник
+  company: Демо-компания
+  style: >-
+    Отвечай прямо и понятно. Помогай сотрудникам разбираться в документах
+    и рабочих вопросах. Общие советы отделяй от правил компании.
+    Не придумывай сведения, которых нет в материалах.
+
+messages:
+  greeting: Привет! Чем помочь?
+  off_topic: Я помогаю с рабочими вопросами. Что нужно узнать?
+  work_courtesy: Я на связи. Чем помочь по работе?
+  company_data_missing: В документах нет подтверждённых данных по этому вопросу.
+  daily_limit: Лимит вопросов исчерпан. Попробуйте позже или обратитесь к администратору.
+  fallback: Не нашёл ответа в документах. Вопрос сохранён для администратора.
+  access_denied: Доступ выдаёт администратор. Попросите у него код приглашения и отправьте его сюда.
+  service_error: Не удалось обработать вопрос. Попробуйте через минуту.
+
+retrieval:
+  top_k_vector: 30
+  top_k_lexical: 30
+  top_k_final: 8
+  min_score: 0.55
+  rrf_k: 60
+  priority_weight: 0.02
+  context_bonus: 0.0
+  section_priority: {}
+rerank:
+  enabled: false
+  input_size: 10
+  output_size: 5
+chunking:
+  target_tokens: null
+  overlap_tokens: null
+  min_tokens: 40
+generation:
+  work_only: true
+  free_chat: true
+  max_chat_output_tokens: 900
+  temperature: 0.2
+  max_output_tokens: 2500
+  history_turns: 8
+  history_max_tokens: 2200
+  rewrite_query: true
+ingest:
+  watch_interval_minutes: 0
+  max_file_mb: 20
+  upload_section: inbox
+limits:
+  per_user_per_minute: 8
+  per_user_per_day: 15
+sensitive_sections: []
+notifications:
+  recipient_ids: []
+  unanswered: true
+  unanswered_throttle_minutes: 30
+  negative_feedback: true
+  ingest_done: true
+  errors: true
+access:
+  open_registration: false
+knowledge_review:
+  owner_id: 0

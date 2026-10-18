@@ -1,0 +1,15 @@
+.env
+.env.*
+.venv
+.venv-win
+BD_NEW
+oldBD
+BD_UNIFIED
+knowledge-archive
+data
+knowledge
+__pycache__
+**/__pycache__
+.pytest_cache
+.git
+*.tar.gz
